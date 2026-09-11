@@ -31,6 +31,67 @@ Table :
 			column_name datatype
 		)
 
+		-- Add new column in existing table
+			Alter table tbl_name
+			Add column_name datatype
+
+		-- Modify datatype of column in existing table
+			Alter table tbl_name
+			Alter column column_name datatype
+
+		-- Delete column from existing table
+			Alter table tbl_name
+			Drop column column_name
+
+		-- Delete table
+		Drop table tbl_name
+			
+
 	-- Example :
 		Create database DB_SQLWeekday
+
+		-- Need to create a table for the student
+			-- First Name, Last Name, Age, DOB, Address, Subject, Email Id, Mobile no
+
+			Create table tbl_Student
+			(
+				Student_FirstName varchar(15),
+				Student_LastName nvarchar(13),
+				Student_Age int,
+				Student_DOB date,
+				Student_Email varchar(25),
+				Student_MobileNo bigint,
+				Student_Address varchar(150)
+			)
+
+			-- Create a table with the name Exam
+				Subject,Marks,Standard,Student Id
+
+				Create table tbl_Marks
+				(
+					Marks_StudentId int,
+					Marks_Subject varchar(13),
+					Marks decimal(10,2)
+				)
+
+			-- Add new column with name Student_Id in tbl_Student
+			Alter table tbl_STUDENT
+			Add Student_Id int
+
+			-- Modify datatype in existing table
+			Alter table tbl_Student
+			Alter column Student_Firstname varchar(20)
+
+			Alter table tbl_Student
+			Alter column Student_DOB datetime
+
+			-- Delete column from existing table
+			Alter table tbl_Student_1
+			Drop column Student_Age
+
+			-- Delete table
+				Drop table tbl_Student_1
+
+
+
 
