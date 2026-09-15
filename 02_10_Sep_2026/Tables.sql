@@ -45,6 +45,12 @@ Table :
 
 		-- Delete table
 		Drop table tbl_name
+
+		-- Rename existing table :
+		exec sp_rename 'old_tablename','new_tablename'
+
+		-- Rename existing column :
+		exec sp_rename 'tbl_name.column_name','new_column_name','column'
 			
 
 	-- Example :
@@ -91,6 +97,15 @@ Table :
 
 			-- Delete table
 				Drop table tbl_Student_1
+
+			-- Rename existing table name
+			Exec sp_rename '[dbo].[tbl_Student]','tbl_StudentMaster'
+
+			-- Rename existing column
+			Exec sp_rename '[dbo].[tbl_StudentMaster].[Student_Email]',
+				'Student_EmailId','column'
+
+
 
 
 
