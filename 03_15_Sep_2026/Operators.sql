@@ -150,4 +150,84 @@ Operator :
 						10 > 12 OR 12 > 12
 						false		false	-> false
 
-		Bitwise Oerator :
+		Special Operator :
+			Special operator is use to perform some operation like find a range 
+				or filter multiple record using single operator.
+
+			-- Types of Special Operator :
+				In : 
+					In operator use to filter out multiple records using single 
+						operator.
+					We can filer out any type of data.
+					In backend this operator is work like a OR operator. So it will return
+						data for the true condition and ignore false conditions.
+
+					-- Syntax :
+						in (expression1,expression2,...,expressionN)
+
+					-- Example :
+						in (1,3,6)
+						
+						in ('abc','xyz','cde')
+
+				Between :
+					Between operator use to filter data by using the range of values.
+					We can not use string value to identify the range of the value
+						or data.
+					value1 should be always less than value2.
+
+					-- Syntax :
+						between value1 And value2
+
+					-- Example :
+						between 10 And 25
+
+				Like :
+					Like operator use to filter out value based on 3 searching criteria
+						that is Start with, End with and Contains.
+					Like operator write with the sign of '%'.
+					Start With : Start with always scan record from left to right. And
+						search data in sequential order.
+					End With : End with always scan record from right to left. And 
+						search data in sequential order.
+					Contain : Contain use to filter out any char or string. If that
+						char or string exists in value then we will get o/p.
+
+					-- Syntax :
+						-- Start with :
+							like 'char/string%'
+
+						-- End with
+							like '%char/string'
+
+						-- Contain :
+							like '%char/string%'
+					
+					-- Example :
+						-- Start with
+							like 'a%'
+
+						-- End with
+							like '%a'
+
+						-- Contains 
+							like '%a%'
+					
+				Not :
+					Not operator use to give o/p of data that is not mention in 
+						condition.
+					Whatever data we search except of that we will get data using not
+						operator.
+
+					-- Example :
+						-- With in operator :
+							not in (1,3,6)
+
+						-- With between
+							not between 10 And 25
+
+						-- With like 
+							not like 'a%'
+
+
+		-- Bitwise Oerator :
