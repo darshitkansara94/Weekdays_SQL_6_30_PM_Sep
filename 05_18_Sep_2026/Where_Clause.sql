@@ -85,6 +85,38 @@ Where Clause :
 		Select * from tbl_StudentMaster
 		Where Student_Age = 29 or Student_FirstName = 'om1'
 
+		Select * from tbl_StudentMaster
+
+		-- With like operator
+		Select * from tbl_StudentMaster
+
+		-- Startwith
+		Select * from tbl_StudentMaster
+
+		Select * from tbl_StudentMaster
+		Where Student_FirstName like 'dh%'
+
+		-- Endwith
+		Select * from tbl_StudentMaster
+		Where Student_FirstName like '%uv'
+
+		-- Contain
+		Select * from tbl_StudentMaster
+		Where Student_FirstName like '%ya%'
+
+		-- Between
+		Select * from tbl_StudentMaster
+		Where Student_Age between 20 and 30
+
+		-- In operator
+		Select * from tbl_StudentMaster
+		Where Student_FirstName in ('Om','Dwij','Tanya','Abhishek')
+		And Student_LastName like 'p%'
+
+		Select * from tbl_StudentMaster
+		Where Student_FirstName = 'Om' OR Student_FirstName = 'Dwij'
+		OR Student_FirstName = 'Tanya' Or Student_FirstName = 'Abhishek'
+
 		
 		
 
