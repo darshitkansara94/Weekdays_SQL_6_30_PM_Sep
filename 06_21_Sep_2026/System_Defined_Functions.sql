@@ -89,7 +89,111 @@ Functions :
 								from tbl_StudentMaster
 						
 
-				String functions :
+				String functions : 
+					String functions are use to manipulate string values.
+					By using string function we can merge multiple values or 
+						extract particular part form the string.
+
+					-- Types of string functions.
+						len() :
+							len function use to identify the length of string.
+							Space is also consider as a char.
+
+							-- Syntax :
+								Select len(column_name) from tbl_name
+
+							-- Example :
+								Select len(Student_FirstName) as FirstName, 
+									Student_FirstName,
+									len(Student_LastName) as LastName,
+									Student_LastName
+								from tbl_StudentMaster
+
+						concat with + :
+							Concat is use to merge two or more than two values	
+								and represent as a single value.
+							If we use concat with + then all the values must be type
+								of string.
+
+							-- Syntax :
+								Select value1 + value2 + ... + value3
+								from tbl_name
+
+							-- Example :
+								Select Student_Firstname,Student_Lastname,
+								Student_EmailId
+								from tbl_StudentMaster
+
+								Select 
+									Student_Firstname + ' ' + Student_Lastname
+									+ Student_EmailId
+								from tbl_StudentMaster
+
+						concat() :
+							Concat is inbuilt string function for concate or merge 
+								string values.
+
+							-- Syntax :
+								Select concat(expression1,expression2,...,expressionN)
+								from tbl_name
+
+							-- Example :
+								Select concat(Student_FirstName,' ',STudent_LastName)
+								from tbl_StudentMaster
+
+						concat_ws() :
+							In concat_ws, WS stand for "with seperator".
+							Seperator can be anything like any alphabet or any special
+								char or numbers.
+							Concat_ws use to concat multiple values.
+
+							-- Syntax :
+								Select concat_ws('seperator',expression1,
+									expression2,...,expressinoN)
+								from tbl_name
+
+							-- Example :
+								Select concat_ws(' ',Student_FirstName,Student_LastName)
+								from tbl_StudentMaster
+
+								Select concat_ws('+',Student_FirstName,Student_LastName)
+								from tbl_StudentMaster
+
+								Select concat_ws('+',Student_FirstName)
+								from tbl_StudentMaster
+
+								Select concat_ws(Student_FirstName, Student_LastName)
+								from tbl_StudentMaster
+
+								Select 
+									concat_ws(Student_FirstName, ' ' ,
+										Student_LastName,Student_EmailId,Student_Age)
+								from tbl_StudentMaster -- OmPatelOmabc@yahoo.in
+
+								Select 
+									concat_ws(' ' ,Student_FirstName, 
+										Student_LastName,Student_EmailId,Student_Age)
+								from tbl_StudentMaster	
+								
+								Select 
+									len(concat_ws(' ' ,Student_FirstName,
+										Student_LastName)) as Full_Name
+								from tbl_StudentMaster	
+
+								Select 
+									concat_ws(' ' ,len(Student_FirstName,
+										Student_LastName)) as Full_Name
+								from tbl_StudentMaster	
+
+						trim() :
+						rtrim() :
+						ltrim() :
+						reverse() :
+						left :
+						right :
+						substring()
+						
+
 				Date and time functions :
 
 		-- User defined functions (UDF)
@@ -105,5 +209,12 @@ Functions :
 	--And perform this with all Aggregate functions
 
 -- Use not operator with where clause
+
+-- Assignment (Date : 22 Sep 2026) :
+	--Create table ifnot exists :
+	--	Add three rows with 3 scenerio.
+	--		1. Add value for firstname no value for lastname
+	--		2. No value for firstname add value for lastname
+	--		3. no value for firstname and lastname
 
 
