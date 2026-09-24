@@ -185,7 +185,37 @@ Functions :
 										Student_LastName)) as Full_Name
 								from tbl_StudentMaster	
 
-						trim() :
+							-- Concat:
+								Select Student_FirstName,Student_LastName,
+								CONCAT(Student_FirstName, ' ' , Student_LastName) as concat_merge,
+								Student_FirstName + ' ' + Student_LastName as concat_withplus,
+								CONCAT_WS(' ',Student_FirstName,Student_LastName) as concat_withSeperator
+								from tbl_StudentMaster
+
+						trim() : 
+							Trim function use to remove whitespace from the string.
+							If we have a space before string and after string value.
+								that space is consider as a white space.
+							Trim function use to remove space from left side and 
+								right side.
+
+							-- Syntax :
+								Select trim(expression) from tbl_name
+
+							-- Example :
+								Select * from tbl_StudentMaster --  Om   
+
+								Select trim(Student_FirstName) as without_Space,
+								Student_FirstName from tbl_StudentMaster
+
+								--Om
+								--  Om   
+								--Om
+
+								Update tbl_StudentMaster set
+									Student_FirstName = trim(Student_FirstName),
+									Student_LastName = trim(Student_LastName)
+
 						rtrim() :
 						ltrim() :
 						reverse() :
