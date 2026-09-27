@@ -217,14 +217,232 @@ Functions :
 									Student_LastName = trim(Student_LastName)
 
 						rtrim() :
+							rtrim function use to remove space from right side
+								of the string.
+							If we have whitespace on left side then rtrim is not
+								capable to remove.
+
+							-- Syntax :
+								Select rtrim(expression) as alias_name 
+								from tbl_name
+
+							-- Example :
+								Select rtrim('  Hello World   ') --  Hello World
+
+								Select * from tbl_StudentMaster
+								--   om     
+								--   om
+								Select rtrim(Student_Firstname) as FirstName 
+								from tbl_StudentMaster
+
 						ltrim() :
+							Ltrim function use to remove whitespace from the 
+								left side of the string.
+							If we have a whitespace at the right side then ltrim is
+								not capable to remove it.
+
+							-- Syntax :
+								Select ltrim(expression) from tbl_name
+
+							-- Example :
+								Select ltrim('  Hello World   ') --Hello World   
+
+								Select ltrim(Student_Firstname) as FirstName 
+								from tbl_StudentMaster --om      
+
 						reverse() :
+							Reverse function use to get a value in reverse order.
+
+							-- Syntax :
+								Select Reverse(expression) from tbl_name
+
+							-- Example :
+								Select reverse(Student_FirstName) as Firstname
+								from tbl_StudentMaster
+
+								Select reverse('Hello world')
+
 						left :
+							Left function use to extract char from left to right.
+							Index always start with 1.
+							If we want to extract char from middle of the string then
+								not possible with left funcion.
+
+							-- Syntax :
+								Select left(expression,char_count) from tbl_name
+
+							-- Example :
+								Select left('Hello World',3)
+
+								Select left('Hello',6)
+
+								Select Student_FirstName,left(Student_FirstName,2) 
+								from tbl_StudentMAster
+
 						right :
-						substring()
+							Right function use to extract char from the right to
+								left.
+
+							-- Syntax :
+								Select Right(expression,char_count) from tbl_name
+
+							-- Example :
+								Select right('Hello world',2)
+
+								Select right(Student_FirstName,3) 
+								from tbl_StudentMaster
+
+						substring() :
+							Substring use to extract char from any position from
+								string value.
+							We need to give start point and no of char to extract 
+								as a part of argument.
+
+							-- Syntax :
+								Select substring(expression,start_index,char_count)
+
+							-- Example :
+								Select 'Hello world',
+								substring('Hello world',2,3)
+
+						Upper :
+							Upper function use to convert string value into 
+								upper case.
+
+							-- Syntax :
+								Select upper(expression) from tbl_name
+
+							-- Example :
+								Select upper('Hello World')
+
+						Lower :
+							Lower function use to convert string value into
+								lower case.
+
+							-- Syntax :
+								Select lower(expression) from tbl_name
+
+							-- Example :
+								Select lower('Hello World')
+
+							Select upper (substring(student_firstname,1,1)) +
+							lower(substring(student_firstname,2,15)) 
+							from  tbl_StudentMaster
+
+							Select Upper(Left(Student_FirstName,1)) +
+							Lower(Substring(Student_FirstName,2,len(Student_FirstName)))
+							from tbl_StudentMaster
+							
+							Select * from tbl_StudentMaster
 						
 
 				Date and time functions :
+					Date and time function use to get current date values.
+					date and time function works with datatype date and time.
+
+					-- Types of date and time function :
+						Getdate() :
+							Getdate retrun current date and time where my sql is installed.
+
+							-- Syntax :
+								Select getdate()
+
+							-- Example :
+								Select Getdate()
+
+						GetUTCDate() :
+							UTC is refer as Coordinated Universal Time.
+							GetUTCDate is work on timezone 0.
+							If we want to make date and time simlar across all the region
+								we can use getutcdate.
+
+							-- Syntax :
+								Select getutcdate()
+
+								Select getdate()
+						
+						year :
+							Year return current year from date.
+
+							-- Syntax :
+								Select year(expression)
+
+							-- Example :
+								Select year(getdate())
+
+						month :
+							Month function use to return month from date and time.
+
+							-- Syntax :
+								Select month(expression)
+
+							-- Example :
+								Select month(getdate())
+
+						day :
+							Day function return current date from date and time.
+
+							-- Syntax :
+								Select day(expression) 
+
+							-- Example :
+								Select day(getdate())
+
+						DateDiff() :
+							DateDiff function use to return difference between two dates.
+
+							-- Syntax :
+								Select datediff(diff_of,date1,date2)
+
+							-- Example :
+								Select datediff(day,getdate(),'2026-10-10 09:49:31.710')
+
+								Select datediff(month,getdate(),'2026-10-10 09:49:31.710')
+
+								Select datediff(year,getdate(),'2028-10-10 09:49:31.710')
+
+								Select datediff(minute,getdate(),'2028-10-10 09:49:31.710')
+
+								Select datediff(hour,getdate(),'2028-10-10 09:49:31.710')
+
+								Select getdate()
+
+
+								Select * from tbl_StudentMaster
+
+								Update tbl_StudentMaster set
+									Student_DOB = '1992-10-10 09:49:31.710'
+								Where Student_Firstname in ('om','darshti','dwij')
+
+								Update tbl_StudentMaster set
+									Student_DOB = '2000-09-10 09:49:31.710'
+								Where Student_Firstname in ('dhruv','tanya')
+
+								Select datediff(year,Student_DOB,getdate())
+								from tbl_StudentMaster
+
+								Select datediff(day,Student_DOB,getdate()),
+								datediff(month,Student_DOB,getdate()),
+								Student_FirstName,Student_LAstName
+								from tbl_StudentMaster
+
+						IsDate() :
+							Isdate function use to verify that entered date is valid or not.
+							This function return either 0 or 1.
+
+							-- Syntax :
+								Select Isdate(expression)
+
+							-- Example :
+								Select isdate(getdate()) -- 1 as date is valid
+								
+								Select isdate('2028-09-31 09:49:31.710') -- 0 as date is invalid
+
+						datename :
+						datepart :
+						
+				Conversion Functions
+						
 
 		-- User defined functions (UDF)
 
