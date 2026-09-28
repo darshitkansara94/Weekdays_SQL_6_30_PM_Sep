@@ -439,10 +439,121 @@ Functions :
 								Select isdate('2028-09-31 09:49:31.710') -- 0 as date is invalid
 
 						datename :
+							Datename use to extract value from date and also some other
+								info.
+							Datename return value in string datatype.
+
+							-- Example :
+							Select DATENAME(DAY,GETDATE()) as TodayDate
+							Select DATENAME(MONTH,GETDATE()) as CurrentMonth
+							Select DATENAME(YEAR,GETDATE()) as CurrentYear
+							Select DATENAME(HOUR,GETDATE()) as CurrentHour
+							Select DATENAME(MINUTE,GETDATE()) as CurrentMinute
+							Select DATENAME(SECOND,GETDATE()) as CurrentSecond
+							Select DATENAME(MILLISECOND,GETDATE()) as CurrentMs
+							Select DATENAME(MICROSECOND,GETDATE()) as CurrentMicroSec
+							Select DATENAME(WEEK,GETDATE()) as CurrentWeek
+							Select DATENAME(WEEKDAY,GETDATE()) as CurrentWeekday
+							Select DATENAME(ISO_WEEK,GETDATE()) as Iso_Week
+							Select DATENAME(DAYOFYEAR,GETDATE()) as CurrentDay
+							Select DATENAME(QUARTER,GETDATE()) as CurrentQuarter
+
 						datepart :
+							Datepart is similar to the datename function.Only the 
+								difference is datepart return value in int type
+								of data.
+
+							-- Example :	
+								-- Assignment
+
+						DateAdd :
+							Dateadd function use to add or minus value from give n date and 
+								time.
+
+							-- Syntax :
+								Select Dateadd(interval,incremental,expression)
+
+							-- Example :
+								Select dateadd(day,3,getdate())
+								Select dateadd(year,3,getdate())
+								Select dateadd(month,4,getdate())
+								Select dateadd(hour,4,getdate())
+
+								Select dateadd(day,-4,getdate())															
 						
-				Conversion Functions
-						
+				Conversion Functions :
+					Conversion function use to convert a value from one datatype
+						to another datatype.
+					To convert a value there are some limitations as well.
+
+					-- Types of conversion function :
+						Convert():
+							Convert function use to convert value from one type to
+								another.
+							When we need to give some specific format to the date
+								then we need to use convert function.
+								
+							-- Syntax :
+								Convert(new_datatype,expression,format_number)
+
+								format_number : This parameter is optional.
+
+							-- Example :
+								Select convert(nvarchar(20),getdate(),107),
+									getdate()
+
+								Select convert(decimal(15,2),15)
+
+								Select convert(int,15.75)
+
+								Select Student_FirstName,Student_LastName ,
+								Student_DOB,
+								Datename(year,Student_DOB) as Year_DOB,
+								convert(nvarchar(20),Student_DOB,106) as DOb
+								from tbl_StudentMaster
+								Where Datename(Year,Student_DOB) = 2000
+
+								Select Student_FirstName,Student_LastName ,
+								Datename(year,Student_DOB) as Year_DOB,
+								convert(nvarchar(20),Student_DOB,106) as DOb
+								from tbl_StudentMaster
+								Where Convert(date,Student_DOB) = '1992/10/10'
+
+								Select * from tbl_StudentMaster
+
+						Cast() :
+							Cast function use to convert a data from one type to 
+								another type.
+							But in cast function we can not format data.
+							In term of performance cast function is quick than 
+								convert function.
+
+							-- Syntax :
+								Cast(expression as new_datatype)
+
+							-- Example :
+								Select cast(getdate() as nvarchar(20))
+
+								Select cast(15 as decimal(15,2))
+
+								Select cast(15.75 as int)
+
+								Select Student_FirstName,Student_LastName ,
+								Datename(year,Student_DOB) as Year_DOB,
+								Cast(Student_DOB as nvarchar(20)) as DOB
+								from tbl_StudentMaster
+								Where Datename(Year,Student_DOB) = 2000
+
+								Select Student_FirstName,Student_LastName ,
+								Datename(year,Student_DOB) as Year_DOB,
+								convert(nvarchar(20),Student_DOB,106) as DOb,
+								Cast(Student_DOB as date) as DOB_Date
+								from tbl_StudentMaster
+								Where cast(Student_DOB as date) = '1992-10-10'
+
+					
+-- Conversion function link :
+	-- https://www.mssqltips.com/sqlservertip/1145/date-and-time-conversions-using-sql-server/
 
 		-- User defined functions (UDF)
 
