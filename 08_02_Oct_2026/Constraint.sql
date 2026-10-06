@@ -212,7 +212,101 @@ Constraint :
 					Student_Age,Student_EmailId)
 				values('Test Default',24,'abc@gmail.com')
 
+				-- Validation for mobile number
+				--Create a table with column name mobile number
+				--add a validation for mobile no that accept only 10 digits.
+
+				alter table tbl_studentmaster
+				add constraint  check_mobileno check (len(student_mobileno)=10)
+	
+				insert into tbl_StudentMaster(student_mobileno)values(12345678901)
+
 		Unique :
-		null
-		not null
+			Unique constraint allow unique values for column.
+			We can store only one null value when unique constraint is applied.
+			We can create unqiue constrint on multiple rows.
+
+			-- Syntax :
+				-- Create table
+				Create table tbl_name
+				(
+					column_name datatype,
+					column_name datatype unique,
+					column_name datatype,
+					..
+					column_name datatype
+				)
+
+				-- Existing table
+				Alter table tbl_name
+				Add constraint cn_name unique(column_name)
+
+			-- Example :
+				Create table tbl_Student
+				(
+					Student_Id int primary key identity(1,1),
+					Student_Name nvarchar(20) unique,
+					Student_EmailId nvarchar(15),
+					Student_MobileNo bigint
+				)
+
+				Select * from tbl_Student
+
+				Insert into tbl_Student(Student_Name)
+				values('Dwij')
+
+				-- Add constraint in existing table
+				Alter table tbl_Student
+				Add constraint cn_unq_EmailId unique(Student_EmailId)
+				
+				Update tbl_Student set
+					Student_Emailid = 'xyz@gmail.com'
+				Where Student_Id = 3
+
+		not null :
+			Not null column is consider as a mandatory field or 
+				property of the column.
+			When we set not null property we can not leave that column as
+				null.
+
+			-- Syntax :
+				Alter table tbl_name
+				Alter column column_name datatype not null
+
+				-- Create table
+				Create table tbl_name
+				(
+					column_name datatype,
+					column_name datatype not null,
+					column_name datatype,
+					..
+					column_name datatype,
+				)
+
+			-- Example
+
+				Insert into tbl_Student
+				(
+					Student_Name,Student_Mobileno
+				)
+				values('Dev',234567890)
+
+			-- Example :
+				Alter table tbl_Student
+				Alter column STudent_mobileno bigint not null
+				
+
+		null :
+			Null allow user to insert a null data for specific column.
+			By default property of column is null.
+
+			-- Syntax :
+				-- Existing table
+				Alter table tbl_name
+				Alter column column_name datatype null
+
+			-- Example :
+				Alter table tbl_Student
+				Alter column Student_MobileNo bigint null
+
 		Composite Key :
