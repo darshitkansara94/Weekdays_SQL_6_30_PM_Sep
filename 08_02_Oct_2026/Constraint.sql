@@ -354,3 +354,4 @@ Constraint :
 				values('Darshit','Patel','BTech')
 
 				Select * from tbl_Staff
+				Where Staff_LastName = 'Darshit'
