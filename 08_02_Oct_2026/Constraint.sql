@@ -310,3 +310,47 @@ Constraint :
 				Alter column Student_MobileNo bigint null
 
 		Composite Key :
+			Composite key is a basically primary key that
+				use multiple columns as a unique value.
+			Composite key use to create unique value using a
+				combination of multiple column values.
+
+			-- Syntax :
+				-- Create table
+				Create table tbl_name
+				(
+					column_name datatype primary key,
+					column_name datatype,
+					...
+					column_name datatype,
+
+					constraint cn_name 
+					primary key 
+						(column_name,column_name,..,column_nameN)
+				)
+
+				-- Existing table
+				Alter table tbl_name
+				Add constraint cn_name 
+					primary key (column_name,column_name)
+
+			-- Example :
+				FirstName = 'xyz' LastName = 'abc'
+				FirstName = 'asd' LastName = 'abc'
+
+				-- Create table for Staff
+				Create table tbl_Staff
+				(
+					Staff_Id int identity(1,1),
+					Staff_FirstName nvarchar(15),
+					Staff_LastName nvarchar(15),
+					Staff_Qualification nvarchar(10),
+
+					Constraint cn_comp_Name primary key
+					(Staff_FirstName,Staff_LastName)
+				)
+
+				Insert into tbl_Staff(Staff_FirstName,Staff_LastName,Staff_Qualification)
+				values('Darshit','Patel','BTech')
+
+				Select * from tbl_Staff
