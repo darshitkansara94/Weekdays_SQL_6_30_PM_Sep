@@ -1,0 +1,15 @@
+--Test :
+--	1. Create a table with the name category and approprite field.
+--	2. Create another table with name sub category with approprite field.
+--	3. Two tables must be connected  through foreign key.
+--	4. Create another table with name order.
+--	5. When i enter any record in the order table, subcategory table 
+--		quantity must be affected (Minus quantity).
+--	6. Add another column in the category table with the name 
+--		"Inserted date". Update this column with the current date
+--		and time.
+--	7. Display current month name in string value.
+--	8. Diff between truncate, delete and drop
+--	9. Where and having diff
+--	10. Diff between operator and function.
+	
