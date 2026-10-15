@@ -89,3 +89,14 @@ print(@FirstName)
 			Exec sp_InsertStudent 'Darshit','xy@gmail.com',123456789
 
 			Exec sp_InsertStudent 'xy@gmail.com','Dwij',123456789
+
+			Exec sp_InsertStudent
+				@EmailId = 'xyz@gmail.com',
+				@StudentName = 'om',
+				@MobileNo = 1237890
+
+			Exec sp_InsertStudent
+				@StudentName = 'Abhishek'
+
+			--Alter table tbl_Student
+			--Drop constraint cn_unq_EmailId

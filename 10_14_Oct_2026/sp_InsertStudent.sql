@@ -1,8 +1,8 @@
-Create procedure sp_InsertStudent
+Alter procedure sp_InsertStudent
 (
 	@StudentName nvarchar(20),
-	@EmailId nvarchar(15),
-	@MobileNo bigint
+	@EmailId nvarchar(15) = 'Unknown',
+	@MobileNo bigint = 0
 )
 As
 Begin
