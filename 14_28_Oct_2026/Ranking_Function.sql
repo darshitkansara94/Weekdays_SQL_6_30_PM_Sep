@@ -34,4 +34,15 @@ Ranking Functions :
 					Student_Id,Student_FirstName,Student_LastName,Student_EmailId
 				from tbl_StudentMaster
 
-		-- Rank()
+		-- Rank() :
+			Rank function use to display sequence number but it will not display
+				number in sequence if rows are duplicate.
+
+			-- Syntax :
+				Select RANK() over(order by column_name) as alias_name
+				from tbl_name
+
+			-- Example :
+				Select Rank() over(Order by Staff_Salary desc) as Srno,
+					Staff_Id,Staff_Name,Staff_Salary
+				from tbl_Staff
