@@ -94,3 +94,12 @@ Index :
 						Update tbl_Student set
 							IsActive = 0
 						Where Student_Id = 2
+
+				-- How to delete index :
+					Remove index from table
+
+					-- Syntax :
+						Drop index idx_name on tbl_name
+
+					-- Example :
+						Drop index idx_Studentname on tbl_Student
