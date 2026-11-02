@@ -57,3 +57,60 @@ Functions :
 
 
 			-- Table Valued function :
+				Table valued function is use to return a complete table as a 
+					output.
+				When we need o calculate data based on multiple filds or logic
+					then we can return table valued function.
+
+				-- Syntax :
+					Create / Alter function fn_name()
+					Returns Table
+					As
+						Return
+							(
+								-- SQl statement
+							)
+
+					-- With parameter
+					Create / Alter function fn_name
+					(
+						-- params
+					)
+					Returns Table
+					As
+						Return
+							(
+								-- SQL statement
+							)
+
+					-- Execcute function :
+						Select * from dbo.fn_name()
+
+				-- Example :
+					Select * from dbo.fn_Student()
+
+-- Common Example :
+Select 
+	Log_Id,Log_Description,Log_Date,
+	dbo.fn_formatData(Log_Date) as formatted_date
+from tbl_Log
+
+Select 
+	Student_Id,Student_Name,Student_EmailId,STudent_DOB,
+	dbo.fn_formatData(Student_DOB) as formatted_date
+from tbl_Student
+
+Select * from tbl_Student
+
+Select *
+from dbo.fn_formatDataTable('1992-11-02 18:58:01.707',0) as fm
+Inner join tbl_Student st on 
+	fm.Student_Id = st.Student_Id
+
+Alter table tbl_Student
+Add Student_DOB datetime
+
+Select GETDATE()
+
+Update tbl_Student set
+	Student_DOB = '1992-11-02 18:58:01.707'
